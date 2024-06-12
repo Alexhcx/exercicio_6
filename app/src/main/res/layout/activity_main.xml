@@ -12,10 +12,10 @@
         android:id="@+id/avistamentoADD"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="27dp"
-        android:layout_marginBottom="661dp"
+        android:layout_marginBottom="810dp"
         android:fontFamily="@font/monster"
         android:letterSpacing="0.06"
         android:text="Arquivo Sobrenatural"
@@ -24,122 +24,138 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/info"
         android:layout_width="330dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="240dp"
         android:layout_marginEnd="41dp"
+        android:layout_marginBottom="580dp"
         android:fontFamily="@font/monster"
         android:justificationMode="inter_word"
         android:letterSpacing="0.06"
         android:lineSpacingExtra="4dp"
         android:text="@string/infoText"
         android:textColor="@color/white"
-        android:textSize="12sp"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/avistamentoADD" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/fantasmasImageView"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="19dp"
-        app:layout_constraintBottom_toTopOf="@+id/entidadeName"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/info"
-        app:layout_constraintVertical_bias="0.0"
-        android:cropToPadding="true"
-        android:src="@drawable/fantasmas" />
-
-    <ImageView
-        android:id="@+id/criaturasImageView"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="56dp"
-        android:layout_marginBottom="19dp"
-        app:layout_constraintBottom_toTopOf="@+id/entidadeName"
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="71dp"
+        android:layout_marginBottom="700dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/info"
-        app:layout_constraintVertical_bias="0.0"
-        android:src="@drawable/criaturas" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/entidadeName"
-        android:layout_width="330dp"
-        android:layout_height="50dp"
+        <ImageView
+            android:id="@+id/fantasmasImageView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:cropToPadding="true"
+            android:src="@drawable/fantasmas" />
+
+        <Space
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:id="@+id/criaturasImageView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/criaturas" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
+        android:layout_marginTop="330dp"
         android:layout_marginEnd="41dp"
-        android:backgroundTint="@color/red"
-        android:fontFamily="@font/monster"
-        android:gravity="center_vertical"
-        android:hint="Nome da entidade"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toTopOf="@+id/entidadeDescricao"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:id="@+id/entidadeDescricao"
-        android:layout_width="330dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginEnd="41dp"
-        android:backgroundTint="@color/red"
-        android:ems="10"
-        android:fontFamily="@font/monster"
-        android:gravity="start|top"
-        android:hint="Descrição do evento"
-        android:inputType="textMultiLine"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        android:textSize="12sp"
+        android:layout_marginBottom="430dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/entidadeName" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/entidadeName"
+            android:layout_width="330dp"
+            android:layout_height="50dp"
+            android:backgroundTint="@color/red"
+            android:fontFamily="@font/monster"
+            android:gravity="center_vertical"
+            android:hint="Nome da entidade"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="15sp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+
+        <EditText
+            android:id="@+id/entidadeDescricao"
+            android:layout_width="330dp"
+            android:layout_height="50dp"
+            android:backgroundTint="@color/red"
+            android:ems="10"
+            android:fontFamily="@font/monster"
+            android:gravity="start|top"
+            android:hint="Descrição do evento"
+            android:inputType="textMultiLine"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="15sp" />
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/addAvistamento"
         android:layout_width="135dp"
         android:layout_height="52dp"
-        android:layout_marginStart="139dp"
-        android:layout_marginTop="49dp"
+        android:layout_marginStart="138dp"
+        android:layout_marginTop="500dp"
         android:layout_marginEnd="138dp"
+        android:layout_marginBottom="340dp"
         android:backgroundTint="@color/red"
         android:fontFamily="@font/monster"
         android:letterSpacing="0.06"
         android:text="Adicionar"
         android:textColor="@color/white"
         android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/entidadeDescricao" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/eventosRView"
         android:layout_width="350dp"
-        android:layout_height="200dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="51dp"
-        android:layout_marginEnd="31dp"
-        android:layout_marginBottom="24dp"
+        android:layout_height="270dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginTop="600dp"
+        android:layout_marginEnd="34dp"
+        android:layout_marginBottom="44dp"
         android:background="@color/red"
         android:padding="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addAvistamento" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
