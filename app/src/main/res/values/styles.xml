@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="SearchViewStyle" parent="Widget.AppCompat.SearchView">
+        <item name="android:textColor">@color/red</item>
+        <item name="android:textColorHint">@color/red</item>
+        <item name="android:fontFamily">@font/monster_family</item>
+        <item name="android:editTextColor">@color/red</item>
+    </style>
+</resources>
