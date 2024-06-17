@@ -8,154 +8,147 @@
     tools:context=".MainActivity"
     android:background="@color/black">
 
-    <TextView
-        android:id="@+id/avistamentoADD"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="27dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="27dp"
-        android:layout_marginBottom="810dp"
-        android:fontFamily="@font/monster"
-        android:letterSpacing="0.06"
-        android:text="Arquivo Sobrenatural"
-        android:textColor="@color/red"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/info"
-        android:layout_width="330dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="240dp"
-        android:layout_marginEnd="41dp"
-        android:layout_marginBottom="580dp"
-        android:fontFamily="@font/monster"
-        android:justificationMode="inter_word"
-        android:letterSpacing="0.06"
-        android:lineSpacingExtra="4dp"
-        android:text="@string/infoText"
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="70dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="71dp"
-        android:layout_marginBottom="700dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:id="@+id/fantasmasImageView"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:cropToPadding="true"
-            android:src="@drawable/fantasmas" />
-
-        <Space
-            android:layout_width="70dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-
-        <ImageView
-            android:id="@+id/criaturasImageView"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/criaturas" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="330dp"
-        android:layout_marginEnd="41dp"
-        android:layout_marginBottom="430dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/entidadeName"
-            android:layout_width="330dp"
-            android:layout_height="50dp"
-            android:backgroundTint="@color/red"
-            android:fontFamily="@font/monster"
-            android:gravity="center_vertical"
-            android:hint="Nome da entidade"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white"
-            android:textSize="15sp" />
-
-        <Space
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="30dp" />
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center">
 
-        <EditText
-            android:id="@+id/entidadeDescricao"
-            android:layout_width="330dp"
-            android:layout_height="50dp"
-            android:backgroundTint="@color/red"
-            android:ems="10"
-            android:fontFamily="@font/monster"
-            android:gravity="start|top"
-            android:hint="Descrição do evento"
-            android:inputType="textMultiLine"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white"
-            android:textSize="15sp" />
+            <LinearLayout
+                android:id="@+id/linearLayout6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
 
-    </LinearLayout>
+                <TextView
+                    android:id="@+id/appNameView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/monster"
+                    android:letterSpacing="0.06"
+                    android:text="Arquivo Sobrenatural"
+                    android:textColor="@color/red"
+                    android:textSize="28sp" />
 
-    <Button
-        android:id="@+id/addAvistamento"
-        android:layout_width="135dp"
-        android:layout_height="52dp"
-        android:layout_marginStart="138dp"
-        android:layout_marginTop="500dp"
-        android:layout_marginEnd="138dp"
-        android:layout_marginBottom="340dp"
-        android:backgroundTint="@color/red"
-        android:fontFamily="@font/monster"
-        android:letterSpacing="0.06"
-        android:text="Adicionar"
-        android:textColor="@color/white"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/eventosRView"
-        android:layout_width="350dp"
-        android:layout_height="270dp"
-        android:layout_marginStart="34dp"
-        android:layout_marginTop="600dp"
-        android:layout_marginEnd="34dp"
-        android:layout_marginBottom="44dp"
-        android:background="@color/red"
-        android:padding="2dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+                <LinearLayout
+                    android:id="@+id/linearLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/fantasmasImageView"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:cropToPadding="true"
+                        android:src="@drawable/fantasmas" />
+
+                    <Space
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <ImageView
+                        android:id="@+id/criaturasImageView"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:src="@drawable/criaturas" />
+                </LinearLayout>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp" />
+
+                <TextView
+                    android:id="@+id/info"
+                    android:layout_width="330dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/monster"
+                    android:justificationMode="inter_word"
+                    android:letterSpacing="0.06"
+                    android:lineSpacingExtra="4dp"
+                    android:text="@string/infoText"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp" />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/entidadeName"
+                    android:layout_width="330dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:backgroundTint="@color/red"
+                    android:fontFamily="@font/monster"
+                    android:gravity="center_vertical"
+                    android:hint="Nome da entidade"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/grey"
+                    android:textSize="15sp" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp" />
+
+                <EditText
+                    android:id="@+id/entidadeDescricao"
+                    android:layout_width="330dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:backgroundTint="@color/red"
+                    android:ems="10"
+                    android:fontFamily="@font/monster"
+                    android:gravity="start|top"
+                    android:hint="Descrição do evento"
+                    android:inputType="textMultiLine"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/grey"
+                    android:textSize="15sp" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp" />
+
+                <Button
+                    android:id="@+id/addAvistamento"
+                    android:layout_width="135dp"
+                    android:layout_height="52dp"
+                    android:layout_gravity="center"
+                    android:backgroundTint="@color/red"
+                    android:fontFamily="@font/monster"
+                    android:letterSpacing="0.06"
+                    android:text="Adicionar"
+                    android:textColor="@color/white"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="15dp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/eventosRView"
+                android:layout_width="350dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center"
+                android:background="@color/red"
+                android:padding="2dp" />
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

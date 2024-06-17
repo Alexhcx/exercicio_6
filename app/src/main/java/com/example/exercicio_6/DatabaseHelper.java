@@ -45,6 +45,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + COLUMN_SIGHTING_LOCAL + " TEXT,"
                 + "FOREIGN KEY(" + COLUMN_SIGHTING_ENTITY_ID + ") REFERENCES " + TABLE_ENTITIES + "(" + COLUMN_ENTITY_ID + ")" + ")";
         db.execSQL(CREATE_SIGHTINGS_TABLE);
+
     }
 
     @Override

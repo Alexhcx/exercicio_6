@@ -2,6 +2,7 @@ package com.example.exercicio_6;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -47,6 +48,10 @@ public class EntityDetailActivity extends AppCompatActivity {
     // ID da entidade que está sendo editada
     private int entityId = -1;
 
+    // Adicione os recursos de áudio
+    private MediaPlayer somFantasma;
+    private MediaPlayer somCriatura;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,10 +64,10 @@ public class EntityDetailActivity extends AppCompatActivity {
         fantasmasImageView = findViewById(R.id.fantasmaView);
         criaturasImageView = findViewById(R.id.criaturaView);
 
-        nomeEntidadeTextView = findViewById(R.id.nomeEntityView);
+        //nomeEntidadeTextView = findViewById(R.id.nomeEntityView);
         nomeEntidadeEditText = findViewById(R.id.nomeEditText);
 
-        descricaoEntidadeTextView = findViewById(R.id.descriptionEntityView);
+        //descricaoEntidadeTextView = findViewById(R.id.descriptionEntityView);
         descricaoEntidadeEditText = findViewById(R.id.descricaoEditTextText);
 
         deletarButton = findViewById(R.id.deletarEntity);
@@ -72,6 +77,10 @@ public class EntityDetailActivity extends AppCompatActivity {
         localEditText = findViewById(R.id.localEditText);
         dataText = findViewById(R.id.dataText);
         timeText = findViewById(R.id.timeText);
+
+        // Inicialize os MediaPlayers
+        somFantasma = MediaPlayer.create(this, R.raw.somfantasma);
+        somCriatura = MediaPlayer.create(this, R.raw.somcriatura);
 
         // Inicialize a lista de avistamentos
         avistamentos = new ArrayList<>();
@@ -88,6 +97,7 @@ public class EntityDetailActivity extends AppCompatActivity {
             caminhoImagem = caminhoFantasmas;
             fantasmasImageView.setBackground(bordaVermelha); // Adiciona a borda
             criaturasImageView.setBackground(null); // Remove a borda
+            somFantasma.start(); // Toca o som do fantasma
         });
 
         criaturasImageView.setOnClickListener(view -> {
@@ -95,6 +105,7 @@ public class EntityDetailActivity extends AppCompatActivity {
             caminhoImagem = caminhoCriaturas;
             fantasmasImageView.setBackground(null);
             criaturasImageView.setBackground(bordaVermelha);
+            somCriatura.start(); // Toca o som da criatura
         });
 
         // Obtém o ID da entidade passada pela MainActivity
@@ -223,5 +234,16 @@ public class EntityDetailActivity extends AppCompatActivity {
         }
     }
 
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (somFantasma != null) {
+            somFantasma.release();
+        }
+        if (somCriatura != null) {
+            somCriatura.release();
+        }
+    }
 
 }

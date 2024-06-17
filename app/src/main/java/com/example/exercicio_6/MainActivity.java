@@ -2,6 +2,7 @@ package com.example.exercicio_6;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -30,6 +31,11 @@ public class MainActivity extends AppCompatActivity {
     private String tipoEntidade = "";
     private int caminhoImagem = 0;
 
+    // Adicione os recursos de áudio
+    private MediaPlayer musicaFundo;
+    private MediaPlayer somFantasma;
+    private MediaPlayer somCriatura;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,11 +58,23 @@ public class MainActivity extends AppCompatActivity {
 
         carregarEntidades();
 
+        // Inicialize os MediaPlayers
+        musicaFundo = MediaPlayer.create(this, R.raw.backgroundmusic);
+        somFantasma = MediaPlayer.create(this, R.raw.somfantasma);
+        somCriatura = MediaPlayer.create(this, R.raw.somcriatura);
+
+        // Inicie a música de fundo
+        musicaFundo.setLooping(true);
+        musicaFundo.start();
+
         fantasmasImageView.setOnClickListener(view -> {
             tipoEntidade = "Fantasma";
             caminhoImagem = caminhoFantasmas;
             fantasmasImageView.setBackground(bordaVermelha);
             criaturasImageView.setBackground(null);
+
+            // Toque o som do fantasma
+            somFantasma.start();
         });
 
         criaturasImageView.setOnClickListener(view -> {
@@ -64,6 +82,9 @@ public class MainActivity extends AppCompatActivity {
             caminhoImagem = caminhoCriaturas;
             fantasmasImageView.setBackground(null);
             criaturasImageView.setBackground(bordaVermelha);
+
+            // Toque o som da criatura
+            somCriatura.start();
         });
 
         findViewById(R.id.addAvistamento).setOnClickListener(view -> {
@@ -109,6 +130,22 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == EDIT_ENTITY_REQUEST && resultCode == RESULT_OK) {
             // Atualize a RecyclerView aqui
             carregarEntidades();
+        }
+    }
+
+    // Pare a música de fundo quando a atividade for destruída
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (musicaFundo != null && musicaFundo.isPlaying()) {
+            musicaFundo.stop();
+            musicaFundo.release();
+        }
+        if (somFantasma != null) {
+            somFantasma.release();
+        }
+        if (somCriatura != null) {
+            somCriatura.release();
         }
     }
 }
